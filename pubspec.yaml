@@ -1,0 +1,81 @@
+name: yet_chat_plus
+description: "A Chat App By YET Company Ltd."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  equatable: ^2.0.7
+
+    # Firebase
+  firebase_auth: ^5.6.0
+  cloud_firestore: ^5.6.9
+  firebase_storage: ^12.4.7
+  cupertino_icons: ^1.0.8
+  supabase_flutter: ^2.9.1
+  google_sign_in: ^7.0.0
+  intl: ^0.20.2
+  file_picker: ^10.1.7
+  iconsax: ^0.0.8
+  flutter_svg: ^2.0.17
+  path_provider: ^2.1.5
+  mime: ^2.0.0
+  image_picker: ^1.1.2
+  path: ^1.9.1
+  lottie: ^3.3.1
+  pinput: ^5.0.1
+  fluttertoast: ^8.2.12
+  shared_preferences: ^2.5.2
+  provider: ^6.1.2
+  persistent_bottom_nav_bar: ^6.2.1
+  get: ^4.7.2
+  google_nav_bar: ^5.0.7
+  animated_hint_textfield: ^1.0.3
+  get_storage: ^2.1.1
+  cached_network_image: ^3.4.1
+  shimmer: ^3.0.0
+  timeago: ^3.2.2
+  flutter_blue_plus: ^1.31.8
+  flutter_joystick: ^0.2.2
+  permission_handler: ^12.0.0+1
+  sidebarx: ^0.17.1
+  flutter_dotenv: ^5.2.1
+
+  uuid: any
+  flutter_slidable: ^4.0.0
+  readmore: ^3.0.0
+  firebase_core: ^3.14.0
+  firebase_messaging: ^15.2.7
+  flutter_local_notifications: ^19.3.0
+  logger: ^2.6.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+flutter:
+  uses-material-design: true
+  assets:
+    - images/
+    - assets/
+    - shorebird.yaml
+    - .env
+
+  fonts:
+    - family: Urbanist
+      fonts:
+        - asset: fonts/Urbanist-Bold.ttf
+        - asset: fonts/Urbanist-Medium.ttf
+        - asset: fonts/Urbanist-SemiBold.ttf
+
+flutter_launcher_icons:
+  android: true # Android için ikon oluştur
+  ios: true # iOS için ikon oluştur
+  image_path: "assets/icon.png" # 1. Adımda hazırladığınız ikonun yolu
+  min_sdk_android: 23 # Minimum Android SDK versiyonu

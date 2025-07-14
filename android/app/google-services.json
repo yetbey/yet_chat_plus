@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "995900970370",
+    "project_id": "yet-connect",
+    "storage_bucket": "yet-connect.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995900970370:android:8d105a34e502aaba5fab9b",
+        "android_client_info": {
+          "package_name": "com.yetchatplus.yet_chat_plus"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3NiTsajLf-zLqvxFSQ5w0e9ABXFUKZOI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
