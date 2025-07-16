@@ -9,6 +9,7 @@ import 'package:yet_chat_plus/controller/user_controller.dart';
 import '../authentication/services/auth_service.dart';
 import '../routes/app_routes.dart';
 import '../services/push_notification_service.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthController extends GetxController {
   final supabase = Supabase.instance.client;
