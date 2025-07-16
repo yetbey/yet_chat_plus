@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+// import 'package:firebase_auth/firebase_auth.dart' as fb_auth;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -9,7 +10,6 @@ import 'package:yet_chat_plus/controller/user_controller.dart';
 import '../authentication/services/auth_service.dart';
 import '../routes/app_routes.dart';
 import '../services/push_notification_service.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthController extends GetxController {
   final supabase = Supabase.instance.client;
@@ -19,6 +19,7 @@ class AuthController extends GetxController {
   User? get user => _user.value;
   final AuthService _authService = Get.put(AuthService());
   final UserController userController = Get.find<UserController>();
+  // final fb_auth.FirebaseAuth _firebaseAuth = fb_auth.FirebaseAuth.instance;
   final isLoading = false.obs;
   final isLoggedIn = false.obs;
   final email = ''.obs;
@@ -45,6 +46,10 @@ class AuthController extends GetxController {
       }
     });
     super.onInit();
+  }
+
+  Future<void> sigInWithGoogleFirebase() async {
+
   }
 
   Future<void> signUpWithEmail({
