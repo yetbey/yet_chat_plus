@@ -123,7 +123,15 @@ class UserController extends GetxController {
           .from('Users')
           .select('UID, fullName, email, image_url').inFilter('UID', otherUserIds);
 
-      users.assignAll(usersData);
+      final senitizedUsers = usersData.map((usersData) {
+        final imageUrl = usersData['image_url'] as String?;
+        if (imageUrl != null && imageUrl.isEmpty) {
+          usersData['image_url'] = null;
+        }
+        return usersData;
+      }).toList();
+
+      users.assignAll(senitizedUsers);
     } catch (error) {
       Get.snackbar('Hata', 'Sohbetler yüklenemedi: $error');
     }
@@ -211,7 +219,9 @@ class UserController extends GetxController {
       userName.value = response['username'] as String?;
       email.value = response['email'] as String?;
       phoneNumber.value = response['phoneNumber'] as String?;
-      imageUrl.value = response['image_url'] as String?;
+
+      final fetchedUrl = response['image_url'] as String?;
+      imageUrl.value = (fetchedUrl != null && fetchedUrl.isEmpty) ? null : fetchedUrl;
     } catch (error) {
       print('Kullanıcı verisi çekilirken hata oluştu: $error');
     }

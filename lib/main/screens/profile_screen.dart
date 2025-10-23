@@ -161,6 +161,9 @@ class ProfileScreenState extends State<ProfileScreen> {
         _profileUserId == supabase.auth.currentUser!.id;
     final String userIdToToggle = _profileUserId!;
 
+    final imageUrl = _profileUserData?['image_url'] as String?;
+    final hasImage = imageUrl != null && imageUrl.isNotEmpty;
+
     return Container(
       color: Theme.of(context).colorScheme.surface,
       child: Padding(
@@ -172,14 +175,8 @@ class ProfileScreenState extends State<ProfileScreen> {
               children: [
                 CircleAvatar(
                   radius: 40,
-                  backgroundImage:
-                      _profileUserData?['image_url'] != null
-                          ? NetworkImage(_profileUserData!['image_url'])
-                          : null,
-                  child:
-                      _profileUserData?['image_url'] == null
-                          ? const Icon(Icons.person, size: 40)
-                          : null,
+                  backgroundImage: hasImage ? NetworkImage(imageUrl) : null,
+                  child: !hasImage ? const Icon(Icons.person, size: 40,) : null,
                 ),
                 Spacer(),
                 Column(
