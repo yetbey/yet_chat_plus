@@ -18,21 +18,19 @@ class _AuthWrapperState extends State<AuthWrapper> {
   @override
   void initState() {
     super.initState();
-    // Bu kontrolü, build metodu çalışmadan, güvenli bir şekilde initState içinde yapıyoruz
-    _checkFirstRunAndClearSession();
+    _checkAndHandleFirstRun();
   }
 
-  void _checkFirstRunAndClearSession() {
+  void _checkAndHandleFirstRun() {
     final box = GetStorage();
-    // Hafızada 'first_run_completed' diye bir anahtar var mı diye bak.
-    // Eğer yoksa (yani null ise), bu uygulamanın ilk açılışıdır.
     final bool hasRunBefore = box.read('first_run_completed') ?? false;
 
     if (!hasRunBefore) {
       print("İLK AÇILIŞ TESPİT EDİLDİ: Tüm oturumlar temizleniyor.");
-      // Bunun ilk açılış olduğunu anladık.
-      // Her ihtimale karşı Supabase'deki 'hayalet oturumu' temizlemek için signOut çağır.
-      authController.signOut();
+      if (authController.user != null){
+        print("Kalıntı oturum bulundu, temizleniyor ...");
+        authController.signOut();
+      }
 
       // Gelecekteki açılışların ilk olmadığını anlamak için işareti hafızaya yaz.
       box.write('first_run_completed', true);
